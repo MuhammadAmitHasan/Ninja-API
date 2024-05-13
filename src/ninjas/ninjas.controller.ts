@@ -18,6 +18,8 @@ import { NinjasService } from './ninjas.service';
 // const controller = new NinjasController(service);
 
 @Controller('ninjas')
+// To implement the guar in full route
+// @UseGuards(BeltGuard)
 export class NinjasController {
   // create constructor to not calling every time the service
   constructor(private readonly ninjasService: NinjasService) {}
@@ -48,6 +50,8 @@ export class NinjasController {
 
   // POST /ninjas
   @Post()
+  // To implement the guard in specific route action
+  // @UseGuards(BeltGuard)
   // Take body from API request
   createNinja(@Body(new ValidationPipe()) createNinjaDto: CreateNinjaDto) {
     return this.ninjasService.createNinja(createNinjaDto);
